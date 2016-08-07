@@ -1,0 +1,37 @@
+{
+    "name": "hos/plugin-postgresql",
+    "description": "PostgreSQL Plugin Framework for Hos",
+    "keywords": [ "daehl", "hos", "framework", "database", "postgresql" ],
+    "homepage": "https://github.com/mallanic/hos-framework-plugin-postgresql",
+    "type": "library",
+    "license": "CC0 1.0",
+    "version": "1.0.0",
+    "authors": [
+        {
+            "name": "Maxime Allanic",
+            "email": "maxime.allanic@daehl.com"
+        }
+    ],
+    "autoload": {
+        "psr-4":{
+            "Hos\\Plugin\\Database\\": "src/"
+        }
+    },
+    "require": {
+    },
+		"package": [
+			"postgresql",
+			"php-pgsql"
+		],
+    "events": {
+      "database": {
+        "update": ["Hos\\Plugin\\Database\\Events::update"],
+        "remove": ["Hos\\Plugin\\Database\\Events::remove"],
+        "create": ["Hos\\Plugin\\Database\\Events::create"],
+				"get": ["Hos\\Plugin\\Database\\Events::get"],
+				"getAll": ["Hos\\Plugin\\Database\\Events::getAll"],
+				"createTable": ["Hos\\Plugin\\Database\\Events::createTable"]
+      }
+    }
+
+}
